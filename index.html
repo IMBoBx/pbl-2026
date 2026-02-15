@@ -59,7 +59,7 @@
 			}
 		</style>
 	</head>
-	<body onload="startTimer()">
+	<body>
 		<div
 			id="timerContainer"
 			class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all"
@@ -297,7 +297,9 @@
 						<p
 							class="text-slate-500 text-sm italic text-justify leading-relaxed"
 						>
-							The system successfully handles live user traffic, processes bookings, and manages administrative tasks in a production environment.
+							The system successfully handles live user traffic,
+							processes bookings, and manages administrative tasks
+							in a production environment.
 						</p>
 					</div>
 				</div>
@@ -336,7 +338,9 @@
 						<p class="font-black text-xl text-slate-100">
 							Garv Kundnani
 						</p>
-						<p class="text-[10px] text-slate-500 mt-1">23FE10CSE00179</p>
+						<p class="text-[10px] text-slate-500 mt-1">
+							23FE10CSE00179
+						</p>
 					</div>
 				</div>
 			</section>
@@ -396,6 +400,13 @@
 				}, 1000);
 			}
 
+			// Initialize timer when DOM is fully loaded
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', startTimer);
+			} else {
+				startTimer();
+			}
+
 			// RESULTS CHART (Demo Data)
 			const ctx = document
 				.getElementById("resultsChart")
@@ -403,7 +414,10 @@
 			new Chart(ctx, {
 				type: "bar",
 				data: {
-					labels: ["Existing Pen-Paper Session Booking", "Online Session Booking"],
+					labels: [
+						"Existing Pen-Paper Session Booking",
+						"Online Session Booking",
+					],
 					datasets: [
 						{
 							data: [70, 100],
